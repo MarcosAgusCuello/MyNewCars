@@ -1,0 +1,86 @@
+
+
+.sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 87vh;
+    background-color: #f4f4f4;
+    border-right: 1px solid #eaeaea;
+    padding: 1rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+}
+
+.sidebartitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.sidebartable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sidebartable th,
+.sidebartable td {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebartable th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.sidebartable tr:hover {
+    background-color: #f1f1f1;
+}
+
+.sidebartable td {
+    color: #555;
+}
+
+/* .brandButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+} */
+
+.brandButton {
+    cursor: pointer;
+}
+
+.modelButton {
+    cursor: pointer;
+}
+
+/* .brandButton:hover {
+    background-color: #0056b3;
+} */
+
+.modelList {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 1rem;
+}
+
+.modelList li {
+    margin: 0.25rem 0;
+    color: #555;
+}
+
+.optionList {
+    margin-left: 20px;
+    list-style-type: circle;
+}

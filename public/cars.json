@@ -1,0 +1,160 @@
+[
+  {
+    "brand": "toyota",
+    "models": [
+      {
+        "id": 1,
+        "name": "corolla",
+        "type": "sedan",
+        "description": "A compact car with great fuel efficiency.",
+        "variants": [
+          {
+            "id": 1,
+            "name": "2.0 XLI CVT",
+            "type": "sedan",
+            "sheet": "https://media.toyota.com.ar/f7be5c27-2676-4b91-b28c-67bbd424d3d0.pdf"
+          },
+          {
+            "id": 2,
+            "name": "2.0 XEI CVT",
+            "type": "sedan",
+            "sheet": "https://media.toyota.com.ar/f7be5c27-2676-4b91-b28c-67bbd424d3d0.pdf"
+          },
+          {
+            "id": 3,
+            "name": "2.0 SEG CVT",
+            "type": "sedan",
+            "sheet": "https://media.toyota.com.ar/f7be5c27-2676-4b91-b28c-67bbd424d3d0.pdf"
+          },
+          {
+            "id": 4,
+            "name": "HEV 1.8 XEI eCVT",
+            "type": "sedan",
+            "sheet": "https://media.toyota.com.ar/f7be5c27-2676-4b91-b28c-67bbd424d3d0.pdf"
+          },
+          {
+            "id": 5,
+            "name": "HEV 1.8 SEG eCVT",
+            "type": "sedan",
+            "sheet": "https://media.toyota.com.ar/f7be5c27-2676-4b91-b28c-67bbd424d3d0.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "brand": "ford",
+    "models": [
+      {
+        "id": 1,
+        "name": "f-150",
+        "type": "truck",
+        "description": "truck"
+      },
+      {
+        "id": 2,
+        "name": "mustang",
+        "type": "truck",
+        "description": "sport coupe"
+      },
+      {
+        "id": 3,
+        "name": "ranger",
+        "type": "truck",
+        "description": "truck"
+      }
+    ]
+  },
+  {
+    "brand": "chevrolet",
+    "models": [
+      {
+        "id": 1,
+        "name": "silverado",
+        "type": "truck",
+        "description": "truck"
+      },
+      {
+        "id": 2,
+        "name": "malibu",
+        "type": "truck",
+        "description": "sedan"
+      },
+      {
+        "id": 3,
+        "name": "equinox",
+        "type": "truck",
+        "description": "suv"
+      }
+    ]
+  },
+  {
+    "brand": "honda",
+    "models": [
+      {
+        "id": 1,
+        "name": "civic",
+        "type": "truck",
+        "description": "sedan"
+      },
+      {
+        "id": 2,
+        "name": "accord",
+        "type": "truck",
+        "description": "executive sedan"
+      },
+      {
+        "id": 3,
+        "name": "cr-v",
+        "type": "truck",
+        "description": "suv"
+      }
+    ]
+  },
+  {
+    "brand": "nissan",
+    "models": [
+      {
+        "id": 1,
+        "name": "altima",
+        "type": "truck",
+        "description": "sedan"
+      },
+      {
+        "id": 2,
+        "name": "rogue",
+        "type": "truck",
+        "description": "?"
+      },
+      {
+        "id": 3,
+        "name": "sentra",
+        "type": "truck",
+        "description": "sedan"
+      }
+    ]
+  },
+  {
+    "brand": "bmw",
+    "models": [
+      {
+        "id": 1,
+        "name": "x5",
+        "type": "truck",
+        "description": "suv"
+      },
+      {
+        "id": 2,
+        "name": "aaa",
+        "type": "truck",
+        "description": "sedan"
+      },
+      {
+        "id": 3,
+        "name": "5",
+        "type": "truck",
+        "description": "executive sedan"
+      }
+    ]
+  }
+]
