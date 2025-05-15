@@ -1,4 +1,5 @@
 .navbar {
+<<<<<<< HEAD
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,3 +37,64 @@
 .navbalinks a:hover {
     color: #007BFF;
 }
+=======
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #85c1e9;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.navbarlogo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937; /* gris oscuro */
+  letter-spacing: -0.5px;
+}
+
+.navbarlogo:hover {
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbarlinks {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbarlinks li {
+  margin: 0;
+}
+
+.navbarlinks a {
+  text-decoration: none;
+  color: #374151; /* gris medio */
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+  padding-bottom: 2px;
+  position: relative;
+}
+
+.navbarlinks a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff; /* indigo-500 */
+  transition: width 0.3s ease;
+}
+
+.navbarlinks a:hover {
+  color: #ffffff;
+}
+
+.navbarlinks a:hover::after {
+  width: 100%;
+}
+>>>>>>> b5bd92d (big updates)

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 const ModelPage = () => {
   const { brand, model, variant }: { brand: string; model: string; variant: string } = useParams();
 
+<<<<<<< HEAD
   const [variantData, setVariantData] = useState<{
     type: string,
     sheet: string,
@@ -18,6 +19,16 @@ const ModelPage = () => {
       try {
         // Cargar el archivo cars.json desde la carpeta public
         const response = await fetch('/cars.json');
+=======
+  const [error, setError] = useState<string | null>(null);
+
+  const [variantData, setVariantData] = useState<Record<string, string | number> | null>(null);
+
+  useEffect(() => {
+    const fetchVariantData = async () => {
+      try {
+        const response = await fetch('https://apicars-ls8k.onrender.com/api/brands');
+>>>>>>> b5bd92d (big updates)
         if (!response.ok) {
           throw new Error('Failed to load cars.json');
         }
@@ -70,14 +81,20 @@ const ModelPage = () => {
 
   if (error) {
     return (
+<<<<<<< HEAD
       <div>
         <h1>Error</h1>
+=======
+      <div className='p-4 bg-red-100 text-red-700 rounded'>
+        <h1 className='text-x1 font-bold'>Error</h1>
+>>>>>>> b5bd92d (big updates)
         <p>{error}</p>
       </div>
     );
   }
 
   if (!variantData) {
+<<<<<<< HEAD
     return <p>Loading...</p>;
   }
 
@@ -88,6 +105,30 @@ const ModelPage = () => {
       <p>NAME: {variantData.name}</p>
       <p>TYPE: {variantData.type}</p>
       <p>SHEET: {variantData.sheet}</p>
+=======
+    return <p className='text-center text-gray-500'>Loading...</p>;
+  }
+
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">{brand.toUpperCase()} - {model.toUpperCase()}</h1>
+      <table className="table-auto w-full border-collapse border border-gray-300">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="border border-gray-300 px-4 py-2 text-left">Field</th>
+            <th className="border border-gray-300 px-4 py-2 text-left">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(variantData).map(([key, value]) => (
+            <tr key={key}>
+              <td className="border border-gray-300 px-4 py-2">{key.toUpperCase()}</td>
+              <td className="border border-gray-300 px-4 py-2">{value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+>>>>>>> b5bd92d (big updates)
     </div>
   );
 };
