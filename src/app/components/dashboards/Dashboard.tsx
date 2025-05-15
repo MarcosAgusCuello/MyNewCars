@@ -1,12 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
-
-const Dashboard = () => {
-  return (
-    <div>
-      <h1>Hello</h1>
-      <p>this is my app</p>
-=======
 import AnimatedCar from '../car/AnimatedCar'
 // import styles from './Dashboard.module.css';
 
@@ -20,7 +12,6 @@ const Dashboard = () => {
         </p>
         <AnimatedCar />
       </div>
->>>>>>> b5bd92d (big updates)
     </div>
   )
 }

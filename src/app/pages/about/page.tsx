@@ -1,12 +1,5 @@
 'use client'
 import React from 'react';
-<<<<<<< HEAD
-// import styles from './page.module.css';
-
-const about = () => {
-  return (
-    <div>about</div>
-=======
 
 const about = () => {
   return (
@@ -19,7 +12,6 @@ const about = () => {
         </p>
       </div>
     </div>
->>>>>>> b5bd92d (big updates)
   )
 }
 
