@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import Link from 'next/link';
 
 const Footer = () => {
     return (
@@ -7,9 +8,9 @@ const Footer = () => {
             <div className={styles.footercontent}>
                 <p>&copy; {new Date().getFullYear()} MyApp. all rights reserved#</p>
                 <ul className={styles.footerlinks}>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Terms of Service</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a>Privacy Policy</a></li>
+                    <li><a>Terms of Service</a></li>
+                    <li><Link href='/pages/contact'>contact</Link></li>
                 </ul>
             </div>
         </footer>

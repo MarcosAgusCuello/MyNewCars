@@ -1,7 +1,7 @@
 .footer {
     background-color: #85c1e9;
-    padding: 1rem 1rem;
-    font-family: Arial, sans-serif;
+    padding: 1rem 2rem;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
     text-align: center;
 }
 
@@ -15,14 +15,37 @@
 
 .footerlogo {
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
+    font-weight: 600;
+    color: #1f2937;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.footerlogo::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.footerlogo:hover {
+    color: #ffffff;
+}
+
+.footerlogo:hover::after {
+    width: 100%;
 }
 
 .footerlinks {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     margin: 0;
     padding: 0;
 }
@@ -33,11 +56,30 @@
 
 .footerlinks a {
     text-decoration: none;
-    color: #555;
+    color: #374151;
     font-size: 1rem;
+    font-weight: 600;
     transition: color 0.3s ease;
+    padding-bottom: 2px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.footerlinks a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
 }
 
 .footerlinks a:hover {
-    color: #007BFF;
+    color: #ffffff;
+}
+
+.footerlinks a:hover::after {
+    width: 100%;
 }

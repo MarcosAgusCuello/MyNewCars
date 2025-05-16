@@ -66,35 +66,79 @@ const ModelPage = () => {
   if (error) {
     return (
       <div className='p-4 bg-red-100 text-red-700 rounded'>
-        <h1 className='text-x1 font-bold'>Error</h1>
+        <h1 className='text-xl font-bold'>Error</h1>
         <p>{error}</p>
       </div>
     );
   }
 
   if (!variantData) {
-    return <p className='text-center text-gray-500'>Loading...</p>;
+    return (
+      <div className="bg-[#f5f5f5] min-h-screen py-8">
+        <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+          {/* Header skeleton */}
+          <div className="h-10 w-3/4 bg-gray-200 rounded animate-pulse mb-6"></div>
+
+          {/* Table skeleton */}
+          <div className="overflow-hidden">
+            <div className="min-w-full divide-y divide-gray-200">
+              {/* Table header skeleton */}
+              <div className="bg-gray-50 px-6 py-3 flex">
+                <div className="w-1/3 h-5 bg-gray-200 rounded animate-pulse"></div>
+                <div className="w-2/3 h-5 bg-gray-200 rounded animate-pulse ml-6"></div>
+              </div>
+
+              {/* Table rows skeleton */}
+              {[...Array(6)].map((_, index) => (
+                <div key={index} className={`flex px-6 py-4 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+                  <div className="w-1/3 h-5 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="w-2/3 h-5 bg-gray-200 rounded animate-pulse ml-6"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">{brand.toUpperCase()} - {model.toUpperCase()}</h1>
-      <table className="table-auto w-full border-collapse border border-gray-300">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border border-gray-300 px-4 py-2 text-left">Field</th>
-            <th className="border border-gray-300 px-4 py-2 text-left">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(variantData).map(([key, value]) => (
-            <tr key={key}>
-              <td className="border border-gray-300 px-4 py-2">{key.toUpperCase()}</td>
-              <td className="border border-gray-300 px-4 py-2">{value}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="bg-[#f5f5f5] min-h-screen py-8">
+      <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-sm">
+        <h1 className="text-3xl font-bold mb-6 text-gray-800 border-b pb-2">
+          {brand.toUpperCase()} - {model.toUpperCase()}
+          <span className="ml-2 text-lg text-gray-500">{variant.replace(/-/g, ' ').toUpperCase()}</span>
+        </h1>
+
+        <div className="overflow-hidden">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead>
+              <tr>
+                <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-2/5">
+                  Specification
+                </th>
+                <th className="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-3/5">
+                  Details
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {Object.entries(variantData).filter(([key]) => key !== 'id' && key !== 'name').map(([key, value], index) => (
+                <tr key={key} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    {key.replace(/([A-Z])/g, ' $1').replace(/_/g, ' ').trim().toUpperCase()}
+                  </td>
+                  <td className="px-6 py-4 whitespace-normal text-sm text-gray-500">
+                    {typeof value === 'string' || typeof value === 'number'
+                      ? String(value)
+                      : JSON.stringify(value)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

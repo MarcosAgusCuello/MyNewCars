@@ -57,7 +57,7 @@
 .submitButton {
     width: 20%;
     padding: 10px;
-    background-color: rgb(0, 255, 238);
+    background-color: #85c1e9;
     color: #000000;
     border: none;
     border-radius: 4px;
@@ -67,5 +67,5 @@
 }
 
 .submitButton:hover {
-    background-color: rgb(0, 232, 162);
+    background-color: #5bade4;
 }

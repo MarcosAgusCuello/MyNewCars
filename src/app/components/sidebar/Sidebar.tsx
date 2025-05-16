@@ -9,6 +9,8 @@ const Sidebar = () => {
     >(null);
     const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
     const [selectedModel, setSelectedModel] = useState<string | null>(null);
+    const [closingBrand, setClosingBrand] = useState<string | null>(null);
+    const [closingModel, setClosingModel] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
@@ -29,20 +31,57 @@ const Sidebar = () => {
     }, []);
 
     const handleBrandClick = (brand: string) => {
-        setSelectedBrand(brand === selectedBrand ? null : brand);
-        setSelectedModel(null);
+        if (selectedBrand === brand) {
+            // Close animation
+            setClosingBrand(brand);
+            setTimeout(() => {
+                setSelectedBrand(null);
+                setClosingBrand(null);
+                setSelectedModel(null);
+            }, 280); // Slightly less than animation duration to prevent flicker
+        } else {
+            setSelectedBrand(brand);
+            setSelectedModel(null);
+        }
     }
 
     const handleModelClick = (model: string) => {
-        setSelectedModel(model === selectedModel ? null : model);
+        if (selectedModel === model) {
+            // Close animation
+            setClosingModel(model);
+            setTimeout(() => {
+                setSelectedModel(null);
+                setClosingModel(null);
+            }, 280); // Slightly less than animation duration to prevent flicker
+        } else {
+            setSelectedModel(model);
+        }
     }
 
     if (error) {
-        return <p className='text-red-500'>Error: {error}</p>
+        return (
+            <div className='p-4 bg-red-100 text-red-700 rounded-lg'>
+                <h1 className='text-xl font-bold mb-2'>Error</h1>
+                <p>{error}</p>
+            </div>
+        );
     }
 
     if (!vehicleData) {
-        return <p className='text-gray-500'>Loading...</p>
+        return (
+            <div className="bg-white rounded-lg shadow-sm p-6">
+                {/* Skeleton loader for sidebar */}
+                <div className="h-8 w-3/4 bg-gray-200 rounded animate-pulse mb-6"></div>
+
+                {/* Brand items skeleton */}
+                {[...Array(5)].map((_, index) => (
+                    <div key={index} className="flex items-center py-3 border-b border-gray-100">
+                        <div className="w-6 h-6 bg-gray-200 rounded-full animate-pulse mr-3"></div>
+                        <div className="w-3/4 h-5 bg-gray-200 rounded animate-pulse"></div>
+                    </div>
+                ))}
+            </div>
+        );
     }
 
     return (
@@ -53,7 +92,7 @@ const Sidebar = () => {
                     {vehicleData.map((brandData, index) => (
                         <React.Fragment key={index}>
                             <tr>
-                                <td>{index + 1}</td>
+                                <td style={{ width: '30px' }}>{index + 1}</td>
                                 <td>
                                     <button
                                         className={styles.brandButton}
@@ -63,10 +102,10 @@ const Sidebar = () => {
                                     </button>
                                 </td>
                             </tr>
-                            {selectedBrand === brandData.brand && (
+                            {(selectedBrand === brandData.brand || closingBrand === brandData.brand) && (
                                 <tr>
                                     <td colSpan={2}>
-                                        <ul className={styles.modelList}>
+                                        <ul className={closingBrand === brandData.brand ? styles.modelListClosing : styles.modelList} key={brandData.brand}>
                                             {brandData.models.map((model) => (
                                                 <li key={model.id}>
                                                     <button
@@ -75,8 +114,8 @@ const Sidebar = () => {
                                                     >
                                                         {model.name.toUpperCase()}
                                                     </button>
-                                                    {selectedModel === model.name && (
-                                                        <ul className={styles.optionList}>
+                                                    {(selectedModel === model.name || closingModel === model.name) && (
+                                                        <ul className={closingModel === model.name ? styles.optionListClosing : styles.optionList} key={model.name}>
                                                             {model.variants.map((variant) => (
                                                                 <li key={variant.id}>
                                                                     <Link
